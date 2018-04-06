@@ -1,4 +1,4 @@
-var newGameBtn = document.getElementById('js-newGameButton'),  //New game button
+var newGameBtn = document.getElementById('js-newGameButton');  //New game button
 
 newGameBtn.addEventListener('click', newGame); //newGame?
 
@@ -40,7 +40,7 @@ function setGameElements() { //What to display
   };
 };
 
-setGameElements(); // nothing change when i change gameState
+setGameElements();
 
 var playerPointsElem = document.getElementById('js-playerPoints'), //newGame function
     playerNameElem = document.getElementById('js-playerName'),
@@ -58,9 +58,9 @@ function newGame() { //New Game
   }
 }
 
-function playerPick(playerPick) { //Player's choice
-    console.log(playerPick);
-}
+//function playerPick(playerPick) { //Player's choice
+//    console.log(playerPick);
+//}
 
 function getComputerPick() { //Computer's choice
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -86,20 +86,20 @@ function checkRoundWinner(playerPick, computerPick) { //Who wins
 
   var winnerIs = 'player';
 
-    if (playerPick == computerPick) {
+    if (playerPick === computerPick) {
         winnerIs = 'noone';
     } else if (
-        (computerPick == 'rock' &&  playerPick == 'scissors') ||
-        (computerPick == 'scissors' &&  playerPick == 'paper') ||
-        (computerPick == 'paper' &&  playerPick == 'rock')) {
+        (computerPick === 'rock' &&  playerPick === 'scissors') ||
+        (computerPick === 'scissors' &&  playerPick === 'paper') ||
+        (computerPick === 'paper' &&  playerPick === 'rock')) {
 
         winnerIs = 'computer';
     }
 
-    if (winnerIs == 'player') {
+    if (winnerIs === 'player') {
         playerResultElem.innerHTML = "Win!";
         player.score++;
-    } else if (winnerIs == 'computer') {
+    } else if (winnerIs === 'computer') {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     };
@@ -109,3 +109,12 @@ function setGamePoints() { //Results
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
 }
+
+/*function whoWins () {
+    if (player.score === 10) {
+        alert('Player Wins!');
+    } else if (computer.score === 10) {
+        alert('Computer Wins!');
+};
+
+whoWins();*/
